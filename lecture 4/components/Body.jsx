@@ -776,7 +776,7 @@ function Body() {
   // restaurantlist.filter((restaurant)=>(
   //   restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
   // ))
-  // :restaurantlist;
+  // :restaurantlist; 
 
   return (
     <>
