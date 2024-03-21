@@ -1,0 +1,2 @@
+1, who we give the inline styling in the react 
+2, why we can note direct set the searchtext value of the input why we need to handel the search functionality
