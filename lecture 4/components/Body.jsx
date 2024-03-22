@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestorantCard from " ./RestorantCard";
+import RestorantCard from "./RestorantCard";
 
 function Body() {
   const restaurantlist = [
