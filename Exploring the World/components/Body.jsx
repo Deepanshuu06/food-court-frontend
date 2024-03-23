@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RestorantCard from "./RestorantCard";
 import Shimmer from "./shimmer.jsx";
-import NotFound from "./NotFound";
+import NotFound from "./LoaderUI.jsx";
 
 function Body() {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -16,9 +16,13 @@ function Body() {
 
   async function fetchRestaurant() {
     try {
-      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7513527&lng=75.90059339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
       const json = await response.json();
-      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      const restaurants =
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants || [];
       setRestaurantList(restaurants);
       setFilteredRestaurant(restaurants);
       setLoading(false);

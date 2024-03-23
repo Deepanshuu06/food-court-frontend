@@ -1,9 +1,9 @@
 import React from "react";
 const NotFound = () => {
     return(
-        <div>
-            <h1>404 Page Not Found</h1>
-        </div>
+     <div className="shimmer-wrapper">
+      <h1>Shimmer ui is loading</h1>
+     </div>
     )
 }
 
