@@ -37,3 +37,24 @@
   margin: 20px 0px;
   width: 30%;
 }
+.header-logo{
+  width: 100px;
+}
+.search-btn{
+  padding: 10px;
+ margin-bottom: 10px;
+border-radius: 15%;
+background-color: red;
+color: white;
+}
+.search-btn:hover{
+  background-color: black;
+  cursor: pointer;
+}
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}

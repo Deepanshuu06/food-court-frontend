@@ -60,4 +60,3 @@ Welcome to the React interview preparation guide! This README provides a collect
 **Answer:** Two-way binding in React refers to the automatic synchronization of data between a model (or state) and a view (or UI). When data changes in the model, the UI is updated to reflect those changes, and vice versa. In React, two-way binding is commonly achieved using form elements like input fields and textarea components, where changes made by the user are immediately reflected in the underlying data and vice versa. This helps in creating interactive and responsive user interfaces.
 
 ---
-

@@ -781,14 +781,17 @@ function Body() {
 
   return (
     <>
-      <input
+    <div className="search-container">
+    <input
         className="search-bar"
         type="text"
         placeholder="Search what you want to eat..."
         value={searchText}
         onChange={handleSearchInput}
       />
-      <button onClick={handleSearch}>search</button>
+      <button onClick={handleSearch} className="search-btn">search</button>
+    </div>
+      
 
       
 
