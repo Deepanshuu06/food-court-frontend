@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 function Header() {
+  function userLoggedIN() {
+    return true;
+  }
+  const [isloggedin, setisloggedin] = useState(false);
+
   const logourl =
     "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
       ? "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
@@ -27,6 +33,23 @@ function Header() {
           <li>Menu</li>
           <li>Contact</li>
           <li>Cart</li>
+          {isloggedin ? (
+            <button
+              onClick={() => {
+                setisloggedin(false);
+              }}
+            >
+              logout
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setisloggedin(true);
+              }}
+            >
+              login
+            </button>
+          )}
         </ul>
       </div>
     </>

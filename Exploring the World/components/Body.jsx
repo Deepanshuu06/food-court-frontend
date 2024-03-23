@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RestorantCard from "./RestorantCard";
-import Shimmer from "./shimmer.jsx";
+
 import NotFound from "./LoaderUI.jsx";
 
 function Body() {
@@ -38,15 +38,13 @@ function Body() {
 
   const handleSearch = () => {
     const filteredRestaurant = restaurantList.filter((restaurant) =>
-      restaurant?.info?.name
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "")
-        .includes(searchText.trim().toLowerCase().replace(/\s+/g, ""))
+      restaurant?.info?.name?.toLowerCase()?.trim()?.replace(/\s+/g, "")
+      ?.includes(searchText?.trim()?.toLowerCase()?.replace(/\s+/g, ""))
     );
 
     setFilteredRestaurant(filteredRestaurant);
   };
+  if (!restaurantList) return <NotFound />;
 
   return (
     <>
@@ -70,7 +68,7 @@ function Body() {
       ) : (
         <div className="restaurant-list">
           {filteredRestaurant.length === 0 ? (
-            <p>No results found.</p>
+            <h1 className="result-not-found">No results found.</h1>
           ) : (
             filteredRestaurant.map((restaurant) => (
               <RestorantCard data={restaurant} key={restaurant.info.id} />

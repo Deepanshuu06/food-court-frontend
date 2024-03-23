@@ -68,3 +68,10 @@ color: white;
 
 }
 
+.result-not-found{
+text-align: center;
+}
+
+.login-button{
+  cursor: pointer;
+}
