@@ -761,6 +761,7 @@ function Body() {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState(restaurantlist);
 
+
   const handleSearchInput = (e) => {
     setSearchText(e.target.value);
   };
@@ -788,6 +789,8 @@ function Body() {
         onChange={handleSearchInput}
       />
       <button onClick={handleSearch}>search</button>
+
+      
 
       <div className="restaurant-list">
         {filteredRestaurant.map((restaurant) => (

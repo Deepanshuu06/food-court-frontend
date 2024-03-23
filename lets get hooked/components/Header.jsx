@@ -9,6 +9,7 @@ function Header() {
           <li>Home</li>
           <li>Menu</li>
           <li>Contact</li>
+          <li>Cart</li>
         </ul>
       </div>
     </>

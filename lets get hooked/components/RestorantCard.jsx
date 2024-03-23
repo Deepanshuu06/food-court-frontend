@@ -1,6 +1,6 @@
 import React from "react";
 
-function RestorantCard( {data} ) {
+function RestorantCard({ data }) {
   // Check if cloudinaryImageId exists, if not, set a placeholder image
   const imageUrl = data.info?.cloudinaryImageId
     ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${data.info.cloudinaryImageId}`
