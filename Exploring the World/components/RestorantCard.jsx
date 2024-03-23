@@ -11,9 +11,9 @@ function RestorantCard({ data }) {
       <div className="card">
         {/* Render the image with the imageUrl */}
         <img src={imageUrl} alt="Restaurant" />
-        <h2>{data.info?.name}</h2>
-        <h3>{data.info?.cuisines.join(", ")}</h3>
-        <h4>{data.info?.avgRating} star rating </h4>
+        <h3>{data?.info?.name}</h3>
+        <h5>{data?.info?.cuisines.join(", ")}</h5>
+        <p>{data?.info?.avgRating} star rating </p>
       </div>
     </>
   );

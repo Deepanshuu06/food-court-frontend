@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from "react";
 import RestorantCard from "./RestorantCard";
+import Shimmer from "./shimmer.jsx";
+import NotFound from "./NotFound";
 
 function Body() {
-  const [restaurantlist, setRestaurantlist] = useState([]);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchRestaurant();
   }, []);
 
-async function fetchRestaurant() {
-  const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  const json = await data.json();
-  setRestaurantlist(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-  setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-}
-console.log(restaurantlist);
-
-  
+  async function fetchRestaurant() {
+    try {
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const json = await response.json();
+      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      setRestaurantList(restaurants);
+      setFilteredRestaurant(restaurants);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  }
 
   const handleSearchInput = (e) => {
     setSearchText(e.target.value);
   };
 
   const handleSearch = () => {
-    const filteredRestaurant = restaurantlist.filter((restaurant) =>
+    const filteredRestaurant = restaurantList.filter((restaurant) =>
       restaurant?.info?.name
         .trim()
         .toLowerCase()
@@ -35,12 +43,6 @@ console.log(restaurantlist);
 
     setFilteredRestaurant(filteredRestaurant);
   };
-
-  // const filteredRestaurant = searchText ?
-  // restaurantlist.filter((restaurant)=>(
-  //   restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-  // ))
-  // :restaurantlist;
 
   return (
     <>
@@ -53,15 +55,25 @@ console.log(restaurantlist);
           onChange={handleSearchInput}
         />
         <button onClick={handleSearch} className="search-btn">
-          search
+          Search
         </button>
       </div>
 
-      <div className="restaurant-list">
-        {filteredRestaurant.map((restaurant) => (
-          <RestorantCard data={restaurant} key={restaurant.info.id} />
-        ))}
-      </div>
+      {loading ? (
+        <NotFound />
+      ) : error ? (
+        <p>Something went wrong. Please try again later.</p>
+      ) : (
+        <div className="restaurant-list">
+          {filteredRestaurant.length === 0 ? (
+            <p>No results found.</p>
+          ) : (
+            filteredRestaurant.map((restaurant) => (
+              <RestorantCard data={restaurant} key={restaurant.info.id} />
+            ))
+          )}
+        </div>
+      )}
     </>
   );
 }
