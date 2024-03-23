@@ -1,1 +1,2 @@
 1, what is config driven ui and why we need to use it
+2, is react re render the whole component when we change on

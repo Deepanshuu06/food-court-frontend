@@ -761,15 +761,19 @@ function Body() {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState(restaurantlist);
 
-
   const handleSearchInput = (e) => {
     setSearchText(e.target.value);
   };
 
   const handleSearch = () => {
     const filteredRestaurant = restaurantlist.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
+      restaurant?.info?.name
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "")
+        .includes(searchText.trim().toLowerCase().replace(/\s+/g, ""))
     );
+
     setFilteredRestaurant(filteredRestaurant);
   };
 
@@ -781,19 +785,18 @@ function Body() {
 
   return (
     <>
-    <div className="search-container">
-    <input
-        className="search-bar"
-        type="text"
-        placeholder="Search what you want to eat..."
-        value={searchText}
-        onChange={handleSearchInput}
-      />
-      <button onClick={handleSearch} className="search-btn">search</button>
-    </div>
-      
-
-      
+      <div className="search-container">
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search what you want to eat..."
+          value={searchText}
+          onChange={handleSearchInput}
+        />
+        <button onClick={handleSearch} className="search-btn">
+          search
+        </button>
+      </div>
 
       <div className="restaurant-list">
         {filteredRestaurant.map((restaurant) => (
