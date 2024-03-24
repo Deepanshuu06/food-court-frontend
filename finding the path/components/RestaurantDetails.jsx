@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import RestaurantListShimmer from "./RestaurantListShimmer";
+import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
@@ -28,6 +29,10 @@ const RestaurantMenu = () => {
       setLoading(false);
     }
   }
+
+const foodMenu = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
+
+
 
   console.log(restaurantdata);
   return loading ? (
@@ -99,23 +104,11 @@ const RestaurantMenu = () => {
                   ?.REGULAR?.cards[1]?.card?.card?.title
               }
             </h3>
-            <div className="restaurants-food-menu-list-card">
-              <div className="restaurants-food-menu-list-card-left">
-                <h3>Chilli Paneer</h3>
-                <h6>290</h6>
-                <p>
-                  Very Spicy | Cubes of crispy paneer with garlic, onions, green
-                  chillies tossed in soya sauce and home made chili sauce. |
-                  Served Dry |
-                </p>
-              </div>
-              <div className="restaurants-food-menu-list-card-right">
-                <img
-                  src="https://via.placeholder.com/300"
-                  alt="Chilli Paneer"
-                />
-              </div>
-            </div>
+
+            {foodMenu?.map((food, index) => (
+              <RestaurantFoodMenuCard key={index} food={food} />
+              ))}
+           
           </div>
         </div>
       )}

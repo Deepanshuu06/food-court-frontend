@@ -4,6 +4,11 @@ const RestaurantListShimmer = () => {
        <div className="RestaurantListShimmer-wrapper">
         <div className="RestaurantListShimmer-card"> </div>
         <div className="RestaurantListShimmer-card"> </div>
+        <div className="RestaurantListShimmer-card"> </div>
+        <div className="RestaurantListShimmer-card"> </div>
+        <div className="RestaurantListShimmer-card"> </div>
+        <div className="RestaurantListShimmer-card"> </div>
+
        </div>
     )
 }
