@@ -151,8 +151,23 @@ margin:  0vw 10vw;
   
 color: red;
 }
-.restaurant-home-card{
-  display: flex;
-  flex-wrap: wrap;
 
+.RestaurantListShimmer-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.RestaurantListShimmer-card{
+  background-color: rgb(237, 237, 237);
+height: 30vh;
+margin:  0vw 10vw;
+}
+
+.restaurants-food-menu-list-card{
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
 }

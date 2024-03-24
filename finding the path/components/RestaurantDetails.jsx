@@ -30,7 +30,9 @@ const RestaurantMenu = () => {
   }
 
   console.log(restaurantdata);
-  return loading? <RestaurantListShimmer/> : (
+  return loading ? (
+    <RestaurantListShimmer />
+  ) : (
     <>
       {error && <p>{error}</p>}
       {!loading && !error && (
@@ -41,7 +43,9 @@ const RestaurantMenu = () => {
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.name}
               </h4>
               <p className="restaurant-cuisines">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines.join(", ")}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines.join(
+                  ", "
+                )}
               </p>
               <p className="restaurant-area-name">
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.areaName}
@@ -55,23 +59,61 @@ const RestaurantMenu = () => {
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating}
               </h4>
               <h6 className="total-ratings">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.totalRatingsString}
+                {
+                  restaurantdata?.data?.cards[0]?.card?.card?.info
+                    ?.totalRatingsString
+                }
               </h6>
             </div>
           </div>
           <div className="coupons-section">
             <div className="delivery-time">
-              <h3>{restaurantdata?.data?.cards[0]?.card?.card?.info?.name?.costForTwoMessage}</h3>
+              <h3>
+                {
+                  restaurantdata?.data?.cards[0]?.card?.card?.info?.name
+                    ?.costForTwoMessage
+                }
+              </h3>
             </div>
             <div className="coupons">
-              {restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList?.map((coupon, index) => (
-                <div className="coupon" key={index}>
-                  <h4>{coupon?.meta}</h4>
-                </div>
-              ))}
-
+              {restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList?.map(
+                (coupon, index) => (
+                  <div className="coupon" key={index}>
+                    <h4>{coupon?.meta}</h4>
+                  </div>
+                )
+              )}
               <div className="veg-or-nonveg">
-                <h2>{restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? "veg" : "nonveg"}</h2>
+                <h2>
+                  {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg
+                    ? "pure-veg"
+                    : "nonveg"}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div className="restaurants-food-menu-list-card-heading">
+            <h3>
+              {
+                restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap
+                  ?.REGULAR?.cards[1]?.card?.card?.title
+              }
+            </h3>
+            <div className="restaurants-food-menu-list-card">
+              <div className="restaurants-food-menu-list-card-left">
+                <h3>Chilli Paneer</h3>
+                <h6>290</h6>
+                <p>
+                  Very Spicy | Cubes of crispy paneer with garlic, onions, green
+                  chillies tossed in soya sauce and home made chili sauce. |
+                  Served Dry |
+                </p>
+              </div>
+              <div className="restaurants-food-menu-list-card-right">
+                <img
+                  src="https://via.placeholder.com/300"
+                  alt="Chilli Paneer"
+                />
               </div>
             </div>
           </div>
