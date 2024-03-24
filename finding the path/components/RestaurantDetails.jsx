@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import RestaurantListShimmer from "./RestaurantListShimmer";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
@@ -28,7 +29,8 @@ const RestaurantMenu = () => {
     }
   }
 
-  return (
+  console.log(restaurantdata);
+  return loading? <RestaurantListShimmer/> : (
     <>
       {error && <p>{error}</p>}
       {!loading && !error && (
@@ -65,9 +67,12 @@ const RestaurantMenu = () => {
               {restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList?.map((coupon, index) => (
                 <div className="coupon" key={index}>
                   <h4>{coupon?.meta}</h4>
-                  <p>{coupon?.description}</p>
                 </div>
               ))}
+
+              <div className="veg-or-nonveg">
+                <h2>{restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? "veg" : "nonveg"}</h2>
+              </div>
             </div>
           </div>
         </div>
