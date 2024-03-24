@@ -9,7 +9,7 @@ function RestorantCard({ data }) {
   return (
     <>
       <a href={`/restaurant/${data?.info?.id}`}>
-      <div className="card">
+      <div className="restaurant-home-card">
         {/* Render the image with the imageUrl */}
         <img src={imageUrl} alt="Restaurant" />
         <h3>{data?.info?.name}</h3>
