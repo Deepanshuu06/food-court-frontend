@@ -3,9 +3,6 @@ import { useParams } from "react-router";
 import RestaurantListShimmer from "./RestaurantListShimmer";
 import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
 
-
-
-
 const RestaurantMenu = () => {
   const { id } = useParams();
   const [restaurantdata, setRestaurantData] = useState({});
