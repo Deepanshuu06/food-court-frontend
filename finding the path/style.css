@@ -116,3 +116,32 @@ text-align: center;
   animation: shimmer 2s infinite linear;
 background-color: rgb(237, 237, 237);
 }
+.restaurant-info-page{
+  display: flex;
+  flex-direction: column;
+margin:  0vw 10vw;
+
+}
+.restaurant-info{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+
+}
+.right-restaurant-info{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ 
+}
+.avg-rating{
+  border: 1px solid lightgray;
+  padding: 1rem;
+  color: green;
+}
+.total-ratings{
+  border: 1px solid lightgray;
+  padding: 1rem;
+  
+color: red;
+}
