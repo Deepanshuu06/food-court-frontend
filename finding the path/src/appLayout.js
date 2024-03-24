@@ -11,6 +11,7 @@ import {
 import About from "../components/About";
 import Footer from "../components/Footer";
 import ContactPage from "../components/ContactPage";
+import ErrorPage from "../components/ErrorPage";
 
 const Layout = () => {
   return (
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement:(<ErrorPage/>)
     
   },
   {
@@ -38,7 +40,9 @@ const router = createBrowserRouter([
       <ContactPage/>
     )
   }
-]);
+  
+]
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={router} />);

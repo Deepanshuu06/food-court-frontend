@@ -8,15 +8,15 @@ function Header() {
   const [isloggedin, setisloggedin] = useState(false);
 
   const logourl =
-    "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
-      ? "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png"
+    "https://vectorlogoseek.com/wp-content/uploads/2018/07/foodcourt-vector-logo.png"
+      ? "https://vectorlogoseek.com/wp-content/uploads/2018/07/foodcourt-vector-logo.png"
       : "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
   return (
     <>
       <div className="nav-bar">
         <img
           src={`${logourl}`}
-          alt=""
+          alt="LOGO"
           className="header-logo"
           onClick={() => {
             window.location.href = "/";
