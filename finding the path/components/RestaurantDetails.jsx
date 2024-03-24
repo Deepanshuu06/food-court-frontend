@@ -3,6 +3,9 @@ import { useParams } from "react-router";
 import RestaurantListShimmer from "./RestaurantListShimmer";
 import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
 
+
+
+
 const RestaurantMenu = () => {
   const { id } = useParams();
   const [restaurantdata, setRestaurantData] = useState({});
@@ -30,11 +33,15 @@ const RestaurantMenu = () => {
     }
   }
 
-const foodMenu = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
-
-
+  const foodMenu =
+    restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+      ?.card?.card?.itemCards;
 
   console.log(restaurantdata);
+
+
+
+  
   return loading ? (
     <RestaurantListShimmer />
   ) : (
@@ -88,13 +95,13 @@ const foodMenu = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGU
                   </div>
                 )
               )}
-              <div className="veg-or-nonveg">
-                <h2>
-                  {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg
-                    ? "pure-veg"
-                    : "nonveg"}
-                </h2>
-              </div>
+            </div>
+            <div className="veg-or-nonveg">
+              {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? (
+                <h3 className="veg-text">Pure Veg</h3>
+              ) : (
+                <h3 className="non-veg-text">Veg & Non Veg</h3>
+              )}
             </div>
           </div>
           <div className="restaurants-food-menu-list-card-heading">
@@ -107,8 +114,7 @@ const foodMenu = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGU
 
             {foodMenu?.map((food, index) => (
               <RestaurantFoodMenuCard key={index} food={food} />
-              ))}
-           
+            ))}
           </div>
         </div>
       )}

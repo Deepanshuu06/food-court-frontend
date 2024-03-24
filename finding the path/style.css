@@ -198,18 +198,38 @@ margin-bottom: 1.5rem;
   width: 12rem;
 display: flex;
 height: 70%;
-margin-bottom: 1rem;
+margin-bottom: 0.5rem;
 }
 .restaurants-food-menu-list-card-right > button {
   background-color: green;
   color: white;
   border: none;
   padding: 0.5rem;
-  border-radius: 10%;
+  border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .restaurants-food-menu-list-card-heading > h3{
-  background-color: aqua;
+border-top: 2px solid lightgray;
   padding: 1rem 0rem;
+}
+
+
+.veg-text{
+  color: green;
+}
+.non-veg-text{
+  color: red;
+}
+.coupons{
+  display: flex;
+}
+.coupon{
+  background-color: rgb(249, 249, 249);
+  padding: 1rem;
+margin-right: 1rem;
+/* border: 1px solid; */
+box-shadow: 1px 1px 1px 1px lightgray;
+border-radius: 20px;
 }
