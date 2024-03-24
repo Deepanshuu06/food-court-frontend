@@ -9,12 +9,15 @@ import {
   Link,
 } from "react-router-dom";
 import About from "../components/About";
+import Footer from "../components/Footer";
+import ContactPage from "../components/ContactPage";
 
 const Layout = () => {
   return (
     <>
       <Header />
       <Body />
+      <Footer/>
     </>
   );
 };
@@ -23,12 +26,18 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    Link,
+    
   },
   {
     path: "/about",
     element: <About />,
   },
+  {
+    path:"/contact",
+    element:(
+      <ContactPage/>
+    )
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

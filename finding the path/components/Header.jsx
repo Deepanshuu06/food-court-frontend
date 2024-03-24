@@ -24,27 +24,31 @@ function Header() {
         />
         <ul className="nav-list">
           <li
-            onClick={() => {
-              window.location.href = "/";
-            }}
+            
           >
-            Home
+           <a href="/">Home</a>
           </li>
-          <li>Menu</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li
+           
+          >
+            <a href="/contact">Contact Us</a>
+          </li>
+          <li><a href="/about">Cart</a></li>
           {isloggedin ? (
             <button
-            className="log-btn"
+              className="log-btn"
               onClick={() => {
                 setisloggedin(false);
               }}
             >
               logout
-            </button> 
+            </button>
           ) : (
             <button
-            className="log-btn"
+              className="log-btn"
               onClick={() => {
                 setisloggedin(true);
               }}
