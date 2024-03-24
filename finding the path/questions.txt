@@ -1,0 +1,2 @@
+why creating the component inside the component is not recommended ?
+formik library used for the ?

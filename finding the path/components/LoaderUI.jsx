@@ -1,10 +1,14 @@
 import React from "react";
 const NotFound = () => {
-    return(
-     <div className="shimmer-wrapper">
-      <h1>Shimmer ui is loading</h1>
-     </div>
-    )
-}
+  return (
+    <div className="shimmer-wrapper">
+      {Array(20)
+        .fill("")
+        .map((e , index) => (
+          <div  key={index} className="shimmer-card"></div>
+        ))}
+    </div>
+  );
+};
 
 export default NotFound;

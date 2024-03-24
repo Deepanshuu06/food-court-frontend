@@ -35,14 +35,16 @@ function Header() {
           <li>Cart</li>
           {isloggedin ? (
             <button
+            className="log-btn"
               onClick={() => {
                 setisloggedin(false);
               }}
             >
               logout
-            </button>
+            </button> 
           ) : (
             <button
+            className="log-btn"
               onClick={() => {
                 setisloggedin(true);
               }}

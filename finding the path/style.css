@@ -75,3 +75,31 @@ text-align: center;
 .login-button{
   cursor: pointer;
 }
+.log-btn{
+  width: 6vw;
+  border-radius: 10%;
+  background-color: red;
+  color: white;
+  border: none;
+  margin-left: 2vw;
+
+}
+
+.log-btn:hover{
+  background-color: black;
+  cursor: pointer;
+}
+
+.shimmer-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+}
+.shimmer-card{
+  width: 208px;
+  height: 400px;
+  padding: 13px;
+  animation: shimmer 2s infinite linear;
+background-color: rgb(237, 237, 237);
+}

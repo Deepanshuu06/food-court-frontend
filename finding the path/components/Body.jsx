@@ -22,7 +22,7 @@ function Body() {
       const json = await response.json();
       const restaurants =
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants || [];
+          ?.restaurants;
       setRestaurantList(restaurants);
       setFilteredRestaurant(restaurants);
       setLoading(false);
