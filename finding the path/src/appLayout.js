@@ -7,18 +7,21 @@ import {
   RouterProvider,
   Route,
   Link,
+  Outlet,
 } from "react-router-dom";
 import About from "../components/About";
 import Footer from "../components/Footer";
 import ContactPage from "../components/ContactPage";
 import ErrorPage from "../components/ErrorPage";
+import CheckOutPage from "../components/CheckOutPage";
+import RestaurantMenu from "../components/RestaurantDetails";
 
 const Layout = () => {
   return (
     <>
       <Header />
-      <Body />
-      <Footer/>
+      <Outlet />
+      <Footer />
     </>
   );
 };
@@ -27,22 +30,31 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement:(<ErrorPage/>)
-    
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckOutPage />,
+      },
+      {
+        path:"/restaurant/:id",
+        element:(<RestaurantMenu/>)
+      }
+    ],
   },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path:"/contact",
-    element:(
-      <ContactPage/>
-    )
-  }
-  
-]
-);
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={router} />);

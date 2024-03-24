@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   function userLoggedIN() {
@@ -23,20 +24,18 @@ function Header() {
           }}
         />
         <ul className="nav-list">
-          <li
-            
-          >
-           <a href="/">Home</a>
+          <li >
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
-          <li
-           
-          >
-            <a href="/contact">Contact Us</a>
+          <li>
+          <Link to="/contact">Contact</Link>
           </li>
-          <li><a href="/about">Cart</a></li>
+          <li>
+          <Link to="/checkout">Checkout</Link>
+          </li>
           {isloggedin ? (
             <button
               className="log-btn"

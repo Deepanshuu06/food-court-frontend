@@ -5,7 +5,6 @@ import Footer from "./Footer";
 
 const Basic = () => (
   <div>
-    <Header />
     <h1>Feel Free to Contact US</h1>
     <Formik
       initialValues={{ email: "", password: "", dob: "" }}
@@ -69,7 +68,6 @@ const Basic = () => (
       )}
     </Formik>
 
-    <Footer />
   </div>
 );
 
