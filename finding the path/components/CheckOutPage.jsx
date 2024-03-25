@@ -1,9 +1,13 @@
 import Header from "./Header"
 
-const CheckOutPage = ()=>{
+const CheckOutPage = (items)=>{
+
+    const [cartList , setCartList] = useState([])
 return(
     <>
     <h1>Checkout Page</h1>
+
+
     </>
 )
 }

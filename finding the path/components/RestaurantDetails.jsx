@@ -95,11 +95,11 @@ const RestaurantMenu = () => {
             </div>
 
             <div className="veg-or-nonveg">
-              <h3 className="veg-text">
+             
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg
-                  ? "Pure Veg"
-                  : "Veg & Non Veg"}
-              </h3>
+                  ?   <h3 className="veg-text">Pure Veg</h3>
+                  : <h3 className="non-veg-text">Veg & Non-Veg</h3>}
+             
             </div>
           </div>
           <div className="restaurants-food-menu-list-card-heading">
