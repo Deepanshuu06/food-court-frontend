@@ -1,10 +1,13 @@
 import React from "react";
-import Header from "./Header";
+import { Outlet } from "react-router";
+import ProfileClassComp from "./ProfileClassComp";
 const About = () => {
   return (
     <>
-    
       <h1>About us page</h1>
+    <Outlet/>
+    <ProfileClassComp/>
+   
     </>
   );
 };

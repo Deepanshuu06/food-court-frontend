@@ -68,7 +68,7 @@ const RestaurantMenu = () => {
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
-              
+                <span class="material-symbols-outlined">star_rate_half</span>
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
@@ -95,11 +95,11 @@ const RestaurantMenu = () => {
             </div>
 
             <div className="veg-or-nonveg">
-             
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg
-                  ?   <h3 className="veg-text">Pure Veg</h3>
-                  : <h3 className="non-veg-text">Veg & Non-Veg</h3>}
-             
+              {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? (
+                <h3 className="veg-text both-text "><span class="material-symbols-outlined">psychiatry</span>Pure Veg</h3>
+              ) : (
+                <h3 className="non-veg-text both-text">Veg & Non-Veg</h3>
+              )}
             </div>
           </div>
           <div className="restaurants-food-menu-list-card-heading">

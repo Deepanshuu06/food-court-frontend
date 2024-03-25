@@ -1,2 +1,4 @@
 1, what is the class based components
-2,
+2,how can we make the nested rout /about/profile
+3, what is react.component
+4, why we use extends in the class based components

@@ -34,7 +34,7 @@ function Header() {
           <Link to="/contact">Contact</Link>
           </li>
           <li>
-          <Link to="/checkout">Checkout</Link>
+          <Link to="/checkout"><span class="material-symbols-outlined">shopping_bag</span></Link>
           </li>
           {isloggedin ? (
            

@@ -16,6 +16,7 @@ import ErrorPage from "../components/ErrorPage";
 import CheckOutPage from "../components/CheckOutPage";
 import RestaurantMenu from "../components/RestaurantDetails";
 import LoginPage from "../components/LoginPage";
+import ProfileComp from "../components/ProfileComp";
 
 const Layout = () => {
   return (
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children:[
+          {
+            path:"profile",
+            element:<ProfileComp/>
+          }
+        ]
       },
       {
         path: "/contact",
