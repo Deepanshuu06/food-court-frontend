@@ -37,23 +37,24 @@ function Header() {
           <Link to="/checkout">Checkout</Link>
           </li>
           {isloggedin ? (
-            <button
-              className="log-btn"
-              onClick={() => {
-                setisloggedin(false);
-              }}
-            >
-              logout
-            </button>
+           
+              <button
+                className="log-btn"
+                onClick={() => {
+                  setisloggedin(false);
+                }}
+              >
+                logout
+              </button>
+           
           ) : (
+            <Link to="/login">
             <button
               className="log-btn"
-              onClick={() => {
-                setisloggedin(true);
-              }}
             >
               login
             </button>
+            </Link>
           )}
         </ul>
       </div>

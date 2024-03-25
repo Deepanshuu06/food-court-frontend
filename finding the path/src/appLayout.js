@@ -15,6 +15,7 @@ import ContactPage from "../components/ContactPage";
 import ErrorPage from "../components/ErrorPage";
 import CheckOutPage from "../components/CheckOutPage";
 import RestaurantMenu from "../components/RestaurantDetails";
+import LoginPage from "../components/LoginPage";
 
 const Layout = () => {
   return (
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         path:"/restaurant",
         element:(<Body />)
       },
+      {
+        path:"/login",
+        element:(<LoginPage/>)
+      }
       
     ],
   },

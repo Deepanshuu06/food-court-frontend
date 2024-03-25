@@ -68,7 +68,7 @@ const RestaurantMenu = () => {
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
-                
+              
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
