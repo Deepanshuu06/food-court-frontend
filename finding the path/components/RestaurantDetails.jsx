@@ -6,6 +6,7 @@ import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
 const RestaurantMenu = () => {
   const { id } = useParams();
   const [restaurantdata, setRestaurantData] = useState({});
+  const [restaurantMenu, setRestaurantMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -25,91 +26,100 @@ const RestaurantMenu = () => {
       setRestaurantData(json);
       setLoading(false);
     } catch (error) {
-      setError("Error fetching data");
+      setError("Error fetching data. Please try again later.");
       setLoading(false);
     }
   }
 
+  const discountAvailable =
+    restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo
+      ?.descriptionList || [];
+
   const foodMenu =
     restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-      ?.card?.card?.itemCards;
+      ?.card?.card?.itemCards || [];
 
-  console.log(restaurantdata);
+      restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.forEach(card => {
+        setRestaurantMenu(Object.values(card));
+       });
 
 
-
-  
-  return loading ? (
-    <RestaurantListShimmer />
-  ) : (
+      useEffect(() => {
+console.log(restaurantMenu);
+      }, []);
+      
+      
+      console.log(restaurantMenu);
+      
+  return (
     <>
-      {error && <p>{error}</p>}
-      {!loading && !error && (
+      {loading ? (
+        <RestaurantListShimmer />
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
         <div className="restaurant-info-page">
           <div className="restaurant-info">
             <div className="left-restaurant-info">
               <h4 className="restaurant-name">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.name}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.name || ""}
               </h4>
               <p className="restaurant-cuisines">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines.join(
-                  ", "
-                )}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines
+                  ?.join(", ") || ""}
               </p>
               <p className="restaurant-area-name">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.areaName}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.areaName ||
+                  ""}
               </p>
               <p className="restaurant-city">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.city}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.city || ""}
               </p>
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating ||
+                  ""}
               </h4>
               <h6 className="total-ratings">
-                {
-                  restaurantdata?.data?.cards[0]?.card?.card?.info
-                    ?.totalRatingsString
-                }
+                {restaurantdata?.data?.cards[0]?.card?.card?.info
+                  ?.totalRatingsString || ""}
               </h6>
             </div>
           </div>
           <div className="coupons-section">
             <div className="delivery-time">
               <h3>
-                {
-                  restaurantdata?.data?.cards[0]?.card?.card?.info?.name
-                    ?.costForTwoMessage
-                }
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.name
+                  ?.costForTwoMessage || ""}
               </h3>
             </div>
+
             <div className="coupons">
-              {restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList?.map(
-                (coupon, index) => (
-                  <div className="coupon" key={index}>
-                    <h4>{coupon?.meta}</h4>
-                  </div>
-                )
-              )}
+              {discountAvailable.map((coupon, index) => (
+                <div className="coupon" key={index}>
+                  <h4>{coupon?.meta}</h4>
+                </div>
+              ))}
             </div>
+
             <div className="veg-or-nonveg">
-              {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? (
-                <h3 className="veg-text">Pure Veg</h3>
-              ) : (
-                <h3 className="non-veg-text">Veg & Non Veg</h3>
-              )}
+              <h3 className="veg-text">
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg
+                  ? "Pure Veg"
+                  : "Veg & Non Veg"}
+              </h3>
             </div>
           </div>
           <div className="restaurants-food-menu-list-card-heading">
             <h3>
               {
                 restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap
-                  ?.REGULAR?.cards[1]?.card?.card?.title
+                  ?.REGULAR?.cards[1]?.card?.card?.title || ""
               }
             </h3>
 
-            {foodMenu?.map((food, index) => (
+            {foodMenu.map((food, index) => (
               <RestaurantFoodMenuCard key={index} food={food} />
             ))}
           </div>

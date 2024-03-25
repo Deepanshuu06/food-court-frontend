@@ -1,7 +1,6 @@
 import React from "react";
 const RestaurantFoodMenuCard = ({ food }) => {
 
-    console.log(food);
     return (
         <div className="restaurants-food-menu-list-card">
               <div className="restaurants-food-menu-list-card-left">
@@ -14,7 +13,7 @@ const RestaurantFoodMenuCard = ({ food }) => {
               <div className="restaurants-food-menu-list-card-right">
                 <img
                   src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${food?.card?.info?.imageId}`}
-                  alt="Chilli Paneer"
+                  alt={food?.card?.info?.name}
                 />
                 <button>Add</button>
               </div>
