@@ -1,14 +1,2 @@
-1,why creating the component inside the component is not recommended ?
-2,formik library used for the ?
-3, how i can make the defalut 404 error page on the react router dom
-4, what is hook 
-5, what is useRouterError and how i use ?
-6, what is SPA - SIngle Page Application
-7, what is two types of routing
-8, what is client side routing 
-9, what is the server side routing
-10, what is nested routing
-11, what is outlet in the react router dom
-12,what is use params 
-13, how to read the url 
-14, what is LINK for linking the url
+1, what is the class based components
+2,
