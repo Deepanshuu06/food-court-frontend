@@ -6,7 +6,6 @@ import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
 const RestaurantMenu = () => {
   const { id } = useParams();
   const [restaurantdata, setRestaurantData] = useState({});
-  const [restaurantMenu, setRestaurantMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -38,18 +37,8 @@ const RestaurantMenu = () => {
   const foodMenu =
     restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
-
-      restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.forEach(card => {
-        setRestaurantMenu(Object.values(card));
-       });
-
-
-      useEffect(() => {
-console.log(restaurantMenu);
-      }, []);
       
       
-      console.log(restaurantMenu);
       
   return (
     <>
