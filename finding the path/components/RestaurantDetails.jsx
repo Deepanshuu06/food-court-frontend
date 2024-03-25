@@ -30,15 +30,19 @@ const RestaurantMenu = () => {
     }
   }
 
+  // console.log(restaurantdata);
+
   const discountAvailable =
     restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo
       ?.descriptionList || [];
 
-  const foodMenu =
+  const recommendedMenu =
     restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
+
+  const TopPicks = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
       
-      
+console.log(restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel);
       
   return (
     <>
@@ -108,7 +112,7 @@ const RestaurantMenu = () => {
               }
             </h3>
 
-            {foodMenu.map((food, index) => (
+            {recommendedMenu.map((food, index) => (
               <RestaurantFoodMenuCard key={index} food={food} />
             ))}
           </div>
