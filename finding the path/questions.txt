@@ -1,5 +1,5 @@
-why creating the component inside the component is not recommended ?
-formik library used for the ?
+1,why creating the component inside the component is not recommended ?
+2,formik library used for the ?
 3, how i can make the defalut 404 error page on the react router dom
 4, what is hook 
 5, what is useRouterError and how i use ?
@@ -11,3 +11,4 @@ formik library used for the ?
 11, what is outlet in the react router dom
 12,what is use params 
 13, how to read the url 
+14, what is LINK for linking the url

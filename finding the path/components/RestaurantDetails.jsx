@@ -40,10 +40,6 @@ const RestaurantMenu = () => {
     restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
 
-  const TopPicks = restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-      
-console.log(restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel);
-      
   return (
     <>
       {loading ? (
@@ -58,8 +54,9 @@ console.log(restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.name || ""}
               </h4>
               <p className="restaurant-cuisines">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines
-                  ?.join(", ") || ""}
+                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines?.join(
+                  ", "
+                ) || ""}
               </p>
               <p className="restaurant-area-name">
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.areaName ||
@@ -71,6 +68,7 @@ console.log(restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
+                
                 {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
@@ -106,10 +104,8 @@ console.log(restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.
           </div>
           <div className="restaurants-food-menu-list-card-heading">
             <h3>
-              {
-                restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap
-                  ?.REGULAR?.cards[1]?.card?.card?.title || ""
-              }
+              {restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap
+                ?.REGULAR?.cards[1]?.card?.card?.title || ""}
             </h3>
 
             {recommendedMenu.map((food, index) => (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestorantCard from "./RestorantCard";
 
 import NotFound from "./LoaderUI.jsx";
+import { Link } from "react-router-dom";
 
 function Body() {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -70,8 +71,10 @@ function Body() {
           {filteredRestaurant.length === 0 ? (
             <h1 className="result-not-found">No results found.</h1>
           ) : (
-            filteredRestaurant.map((restaurant) => (
-              <RestorantCard data={restaurant} key={restaurant.info.id} />
+           filteredRestaurant.map((restaurant) => (
+            <Link to={`/restaurant/${restaurant.info.id}`} key={restaurant.info.id}>
+              <RestorantCard data={restaurant}/>
+            </Link>
             ))
           )}
         </div>

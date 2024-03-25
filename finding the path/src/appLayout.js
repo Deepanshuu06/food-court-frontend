@@ -55,7 +55,8 @@ const router = createBrowserRouter([
       {
         path:"/restaurant",
         element:(<Body />)
-      }
+      },
+      
     ],
   },
 ]);
