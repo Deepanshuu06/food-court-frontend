@@ -2,3 +2,9 @@
 2,how can we make the nested rout /about/profile
 3, what is react.component
 4, why we use extends in the class based components
+5, how can i pass the argument in the class based component
+6, how to create the use state variable in the class based component
+7, why do we use super(props)
+8, what is constructor
+
+
