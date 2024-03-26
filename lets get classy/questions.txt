@@ -8,3 +8,5 @@
 8, what is constructor
 
 
+9, why we use the setState 
+10,why we use this.setState({count:"1"}) can we use directly this.State like this

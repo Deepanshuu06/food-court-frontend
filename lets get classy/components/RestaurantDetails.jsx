@@ -33,12 +33,14 @@ const RestaurantMenu = () => {
   // console.log(restaurantdata);
 
   const discountAvailable =
-    restaurantdata?.data?.cards[0]?.card?.card?.info?.aggregatedDiscountInfo
+    restaurantdata?.data?.cards[2]?.card?.card?.info?.aggregatedDiscountInfo
       ?.descriptionList || [];
 
   const recommendedMenu =
-    restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+    restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
+
+  console.log(restaurantdata);
 
   return (
     <>
@@ -51,29 +53,29 @@ const RestaurantMenu = () => {
           <div className="restaurant-info">
             <div className="left-restaurant-info">
               <h4 className="restaurant-name">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.name || ""}
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.name || ""}
               </h4>
               <p className="restaurant-cuisines">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.cuisines?.join(
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.cuisines?.join(
                   ", "
                 ) || ""}
               </p>
               <p className="restaurant-area-name">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.areaName ||
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.areaName ||
                   ""}
               </p>
               <p className="restaurant-city">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.city || ""}
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.city || ""}
               </p>
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
                 <span class="material-symbols-outlined">star_rate_half</span>
-                {restaurantdata?.data?.cards[0]?.card?.card?.info?.avgRating ||
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
               <h6 className="total-ratings">
-                {restaurantdata?.data?.cards[0]?.card?.card?.info
+                {restaurantdata?.data?.cards[2]?.card?.card?.info
                   ?.totalRatingsString || ""}
               </h6>
             </div>
@@ -95,7 +97,7 @@ const RestaurantMenu = () => {
             </div>
 
             <div className="veg-or-nonveg">
-              {restaurantdata?.data?.cards[0]?.card?.card?.info?.veg ? (
+              {restaurantdata?.data?.cards[2]?.card?.card?.info?.veg ? (
                 <h3 className="veg-text both-text "><span class="material-symbols-outlined">psychiatry</span>Pure Veg</h3>
               ) : (
                 <h3 className="non-veg-text both-text">Veg & Non-Veg</h3>
@@ -104,7 +106,7 @@ const RestaurantMenu = () => {
           </div>
           <div className="restaurants-food-menu-list-card-heading">
             <h3>
-              {restaurantdata?.data?.cards[2]?.groupedCard?.cardGroupMap
+              {restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap
                 ?.REGULAR?.cards[1]?.card?.card?.title || ""}
             </h3>
 
