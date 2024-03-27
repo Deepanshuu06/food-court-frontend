@@ -10,12 +10,13 @@ const RestaurantFoodMenuCard = ({ food }) => {
                 <p>
                     {food?.card?.info?.description}
                 </p>
+                <p>{food?.card?.info?.ratings?.aggregatedRating?.rating}</p>
               </div>
               <div className="restaurants-food-menu-list-card-right">
                 <img
-                  src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${food?.card?.info?.imageId}`}
+                  src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${food?.card?.info?.imageId }`}
                   alt={food?.card?.info?.name}
-                />
+                /> 
                 <button>Add</button>
               </div>
             </div>

@@ -40,8 +40,13 @@ const RestaurantMenu = () => {
     restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
 
-  console.log(restaurantdata);
+  const topPicks =
+    restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+      ?.card?.card?.itemCards || [];
 
+  console.log(restaurantdata);
+  console.log(recommendedMenu);
+  console.log(topPicks);
   return (
     <>
       {loading ? (
@@ -67,6 +72,11 @@ const RestaurantMenu = () => {
               <p className="restaurant-city">
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.city || ""}
               </p>
+              <div className="restaurant-isOpen">
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.isOpen
+                  ? <h4 className="Restaurant-open-text" >OPEN</h4>
+                  : <h4 className="Restaurant-closed-text" ><C>CLOSED</C></h4>}
+              </div>
             </div>
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
@@ -98,21 +108,40 @@ const RestaurantMenu = () => {
 
             <div className="veg-or-nonveg">
               {restaurantdata?.data?.cards[2]?.card?.card?.info?.veg ? (
-                <h3 className="veg-text both-text "><span class="material-symbols-outlined">psychiatry</span>Pure Veg</h3>
+                <h3 className="veg-text both-text ">
+                  <span class="material-symbols-outlined">psychiatry</span>Pure
+                  Veg
+                </h3>
               ) : (
                 <h3 className="non-veg-text both-text">Veg & Non-Veg</h3>
               )}
             </div>
           </div>
-          <div className="restaurants-food-menu-list-card-heading">
-            <h3>
-              {restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap
-                ?.REGULAR?.cards[1]?.card?.card?.title || ""}
-            </h3>
-
-            {recommendedMenu.map((food, index) => (
-              <RestaurantFoodMenuCard key={index} food={food} />
-            ))}
+          <div>
+            <div className="recomended-items">
+              <h3 className="restaurants-food-menu-list-card-heading">
+                {restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap
+                  ?.REGULAR?.cards[1]?.card?.card?.title || ""}
+              </h3>
+              {recommendedMenu.map((food) => (
+                <RestaurantFoodMenuCard
+                  key={food?.card?.info?.id}
+                  food={food}
+                />
+              ))}
+            </div>
+            <div className="top-picks-items">
+              <h3 className="restaurants-food-menu-list-card-heading">
+                {restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap
+                  ?.REGULAR?.cards[2]?.card?.card?.title || ""}
+              </h3>
+              {topPicks.map((food) => (
+                <RestaurantFoodMenuCard
+                  key={food?.card?.info?.id}
+                  food={food}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}

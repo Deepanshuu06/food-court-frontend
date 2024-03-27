@@ -10,3 +10,4 @@
 
 9, why we use the setState 
 10,why we use this.setState({count:"1"}) can we use directly this.State like this
+11, what is ComponentDidMont()  this is the function which called after the rendr 

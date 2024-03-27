@@ -212,9 +212,12 @@ margin-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.restaurants-food-menu-list-card-heading > h3{
+.restaurants-food-menu-list-card-heading{
 border-top: 2px solid lightgray;
   padding: 1rem 0rem;
+  width: 100%;
+  border: 2px solid lightgray;
+  background-color: lightgreen;
 }
 
 
@@ -270,4 +273,13 @@ transition: 1s ease-in;
 .both-text{
   display: flex;
   align-items: center;
+}
+
+.Restaurant-closed-text{
+  color: red;
+  font-size: 1.5rem;
+}
+.Restaurant-open-text{
+  color: green;
+  font-size: 1.5rem;
 }
