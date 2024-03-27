@@ -1,5 +1,4 @@
 import React from "react";
-
 class ProfileClassComp extends React.Component{
     render(){
         return(

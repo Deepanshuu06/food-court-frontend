@@ -29,7 +29,6 @@ const RestaurantMenu = () => {
       setLoading(false);
     }
   }
-
   // console.log(restaurantdata);
 
   const discountAvailable =
@@ -73,9 +72,13 @@ const RestaurantMenu = () => {
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.city || ""}
               </p>
               <div className="restaurant-isOpen">
-                {restaurantdata?.data?.cards[2]?.card?.card?.info?.isOpen
-                  ? <h4 className="Restaurant-open-text" >OPEN</h4>
-                  : <h4 className="Restaurant-closed-text" ><C>CLOSED</C></h4>}
+                {restaurantdata?.data?.cards[2]?.card?.card?.info?.isOpen ? (
+                  <h4 className="Restaurant-open-text">OPEN</h4>
+                ) : (
+                  <h4 className="Restaurant-closed-text">
+                    <C>CLOSED</C>
+                  </h4>
+                )}
               </div>
             </div>
             <div className="right-restaurant-info">

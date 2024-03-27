@@ -8,7 +8,6 @@ function RestorantCard({ data }) {
 
   return (
     <>
-     
       <div className="restaurant-home-card">
         {/* Render the image with the imageUrl */}
         <img src={imageUrl} alt="Restaurant" />

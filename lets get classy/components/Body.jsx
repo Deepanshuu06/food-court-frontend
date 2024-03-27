@@ -38,7 +38,7 @@ function Body() {
   };
 
   const handleSearch = () => {
-    const filteredRestaurant = restaurantList.filter((restaurant) =>
+    const filteredRestaurant = rbestaurantList.filter((restaurant) =>
       restaurant?.info?.name?.toLowerCase()?.trim()?.replace(/\s+/g, "")
       ?.includes(searchText?.trim()?.toLowerCase()?.replace(/\s+/g, ""))
     );

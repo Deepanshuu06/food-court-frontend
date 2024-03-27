@@ -8,7 +8,6 @@ const RestaurantListShimmer = () => {
         <div className="RestaurantListShimmer-card"> </div>
         <div className="RestaurantListShimmer-card"> </div>
         <div className="RestaurantListShimmer-card"> </div>
-
        </div>
     )
 }

@@ -41,12 +41,12 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-        children:[
+        children: [
           {
-            path:"profile",
-            element:<ProfileComp/>
-          }
-        ]
+            path: "profile",
+            element: <ProfileComp />,
+          },
+        ],
       },
       {
         path: "/contact",
@@ -57,18 +57,17 @@ const router = createBrowserRouter([
         element: <CheckOutPage />,
       },
       {
-        path:"/restaurant/:id",
-        element:(<RestaurantMenu/>)
+        path: "/restaurant/:id",
+        element: <RestaurantMenu />,
       },
       {
-        path:"/restaurant",
-        element:(<Body />)
+        path: "/restaurant",
+        element: <Body />,
       },
       {
-        path:"/login",
-        element:(<LoginPage/>)
-      }
-      
+        path: "/login",
+        element: <LoginPage />,
+      },
     ],
   },
 ]);
