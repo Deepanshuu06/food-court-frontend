@@ -1,60 +1,60 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import RestaurantListShimmer from "./RestaurantListShimmer";
-import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard";
+import RestaurantListShimmer from "./RestaurantListShimmer"; // Importing RestaurantListShimmer component
+import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard"; // Importing RestaurantFoodMenuCard component
 
 const RestaurantMenu = () => {
-  const { id } = useParams();
-  const [restaurantdata, setRestaurantData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { id } = useParams(); // Extracting id parameter from URL
+  const [restaurantdata, setRestaurantData] = useState({}); // State to hold restaurant data
+  const [loading, setLoading] = useState(true); // State to indicate loading state
+  const [error, setError] = useState(null); // State to hold error information
 
   useEffect(() => {
-    fetchRestaurantData();
+    fetchRestaurantData(); // Fetching restaurant data when component mounts
   }, []);
 
   async function fetchRestaurantData() {
     try {
       const response = await fetch(
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.71700&lng=75.83370&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
-      );
+      ); // Fetching restaurant data from the API
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
-      const json = await response.json();
-      setRestaurantData(json);
-      setLoading(false);
+      const json = await response.json(); // Parsing the response as JSON
+      setRestaurantData(json); // Setting the fetched restaurant data
+      setLoading(false); // Setting loading state to false
     } catch (error) {
-      setError("Error fetching data. Please try again later.");
-      setLoading(false);
+      setError("Error fetching data. Please try again later."); // Setting error state if there's an error during fetching
+      setLoading(false); // Setting loading state to false
     }
   }
-  // console.log(restaurantdata);
 
+  // Extracting discount information
   const discountAvailable =
     restaurantdata?.data?.cards[2]?.card?.card?.info?.aggregatedDiscountInfo
       ?.descriptionList || [];
 
+  // Extracting recommended menu items
   const recommendedMenu =
     restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
       ?.card?.card?.itemCards || [];
 
+  // Extracting top picks menu items
   const topPicks =
     restaurantdata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
       ?.card?.card?.itemCards || [];
 
-  console.log(restaurantdata);
-  console.log(recommendedMenu);
-  console.log(topPicks);
   return (
     <>
       {loading ? (
-        <RestaurantListShimmer />
+        <RestaurantListShimmer /> // Displaying RestaurantListShimmer component if loading
       ) : error ? (
-        <p>{error}</p>
+        <p>{error}</p> // Displaying error message if there's an error
       ) : (
         <div className="restaurant-info-page">
           <div className="restaurant-info">
+            {/* Displaying basic restaurant information */}
             <div className="left-restaurant-info">
               <h4 className="restaurant-name">
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.name || ""}
@@ -81,6 +81,7 @@ const RestaurantMenu = () => {
                 )}
               </div>
             </div>
+            {/* Displaying restaurant rating */}
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
                 <span class="material-symbols-outlined">star_rate_half</span>
@@ -93,6 +94,7 @@ const RestaurantMenu = () => {
               </h6>
             </div>
           </div>
+          {/* Displaying delivery info and coupons */}
           <div className="coupons-section">
             <div className="delivery-time">
               <h3>
@@ -100,7 +102,7 @@ const RestaurantMenu = () => {
                   ?.costForTwoMessage || ""}
               </h3>
             </div>
-
+            {/* Displaying available discounts */}
             <div className="coupons">
               {discountAvailable.map((coupon, index) => (
                 <div className="coupon" key={index}>
@@ -108,7 +110,7 @@ const RestaurantMenu = () => {
                 </div>
               ))}
             </div>
-
+            {/* Displaying whether the restaurant is pure veg or not */}
             <div className="veg-or-nonveg">
               {restaurantdata?.data?.cards[2]?.card?.card?.info?.veg ? (
                 <h3 className="veg-text both-text ">
@@ -120,6 +122,7 @@ const RestaurantMenu = () => {
               )}
             </div>
           </div>
+          {/* Displaying recommended and top picks menu items */}
           <div>
             <div className="recomended-items">
               <h3 className="restaurants-food-menu-list-card-heading">
@@ -129,7 +132,7 @@ const RestaurantMenu = () => {
               {recommendedMenu.map((food) => (
                 <RestaurantFoodMenuCard
                   key={food?.card?.info?.id}
-                  food={food}
+                  food={food} // Passing menu item data as prop to RestaurantFoodMenuCard component
                 />
               ))}
             </div>
@@ -141,7 +144,7 @@ const RestaurantMenu = () => {
               {topPicks.map((food) => (
                 <RestaurantFoodMenuCard
                   key={food?.card?.info?.id}
-                  food={food}
+                  food={food} // Passing menu item data as prop to RestaurantFoodMenuCard component
                 />
               ))}
             </div>
