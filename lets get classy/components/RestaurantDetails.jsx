@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import RestaurantListShimmer from "./RestaurantListShimmer"; // Importing RestaurantListShimmer component
+import RestaurantListShimmer from "./RestaurantListShimmer"; // Importing   RestaurantListShimmer component
 import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard"; // Importing RestaurantFoodMenuCard component
 
 const RestaurantMenu = () => {

@@ -283,3 +283,16 @@ transition: 1s ease-in;
   color: green;
   font-size: 1.5rem;
 }
+
+.footerContainer{
+  display: flex;
+  background-color: black;
+  color: white;
+
+padding: 10rem 0rem;
+  justify-content: space-around;
+}
+.footerContainer > ul > li{
+  text-decoration: none;
+  list-style: none;
+}
