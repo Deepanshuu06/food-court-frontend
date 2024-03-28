@@ -1,7 +1,5 @@
 import React from "react";
 import { Formik } from "formik";
-import Header from "./Header";
-import Footer from "./Footer";
 
 const Basic = () => (
   <div>
