@@ -1,3 +1,4 @@
+// Import React library
 import React from "react";
 
 const RestaurantFoodMenuCard = ({ food }) => {
@@ -21,6 +22,6 @@ const RestaurantFoodMenuCard = ({ food }) => {
               </div>
             </div>
     );
-    }
+}
 
-    export default RestaurantFoodMenuCard;
+export default RestaurantFoodMenuCard;
