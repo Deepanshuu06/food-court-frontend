@@ -76,7 +76,7 @@ const RestaurantMenu = () => {
                   <h4 className="Restaurant-open-text">OPEN</h4>
                 ) : (
                   <h4 className="Restaurant-closed-text">
-                    <C>CLOSED</C>
+                    CLOSED
                   </h4>
                 )}
               </div>
@@ -84,7 +84,7 @@ const RestaurantMenu = () => {
             {/* Displaying restaurant rating */}
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
-                <span class="material-symbols-outlined">star_rate_half</span>
+                <span className="material-symbols-outlined">star_rate_half</span>
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
