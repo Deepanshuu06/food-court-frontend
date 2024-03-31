@@ -72,7 +72,7 @@ function Body() {
           ) : (
            filteredRestaurant.map((restaurant) => (
             <Link to={`/restaurant/${restaurant.info.id}`} key={restaurant.info.id}>
-              <RestorantCard data={restaurant}/> // Mapping through filtered restaurants and rendering RestorantCard component
+              <RestorantCard data={restaurant}/> 
             </Link>
             ))
           )}
