@@ -1,5 +1,6 @@
 *{
   font-family: 'poppins', sans-serif;
+  
 }
 
 a{
@@ -285,9 +286,10 @@ transition: 1s ease-in;
 }
 
 .footerContainer{
+  margin-top: 10rem;
   display: flex;
   background-color: black;
-  color: white;
+  color: rgb(255, 255, 255);
 
 padding: 10rem 0rem;
   justify-content: space-around;
@@ -295,4 +297,5 @@ padding: 10rem 0rem;
 .footerContainer > ul > li{
   text-decoration: none;
   list-style: none;
+  padding: 1rem;
 }
