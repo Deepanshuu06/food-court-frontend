@@ -2,13 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "../components/Header";
 import Body from "../components/Body";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "../components/About";
 import Footer from "../components/Footer";
 import ContactPage from "../components/ContactPage";
@@ -17,6 +11,7 @@ import CheckOutPage from "../components/CheckOutPage";
 import RestaurantMenu from "../components/RestaurantDetails";
 import LoginPage from "../components/LoginPage";
 import ProfileComp from "../components/ProfileComp";
+import SignupPage from "../components/SignupPage";
 
 const Layout = () => {
   return (
@@ -67,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/signup",
+        element: <SignupPage />,
       },
     ],
   },

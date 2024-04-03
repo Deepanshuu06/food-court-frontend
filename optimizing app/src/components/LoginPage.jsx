@@ -1,9 +1,11 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 const LoginPage = ()=>{
-    return(
+    return(<>
+    
         <div>
           <h1>Login</h1>
           <Formik
@@ -42,6 +44,10 @@ const LoginPage = ()=>{
             )}
           </Formik>
         </div>
+        <div>
+         <h3>Click here to <Link to="/signup" className='loginpage-signuplink'>Signup</Link></h3>
+        </div>
+        </>
       );
 }
 export default LoginPage;
