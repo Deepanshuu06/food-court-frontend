@@ -1,4 +1,9 @@
 1, how we can create the hook in the react
-2 , why should we create our own hook
+2, why should we create our own hook
 3, what inside the utlis folder 
 4, why we create the utlis folder
+5, what is modulearity 
+6, why hooks are used
+7, what is named export and unnamed export
+8, why do we used the hooks
+9, what does use state returns

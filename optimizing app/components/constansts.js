@@ -1,4 +1,7 @@
-const IMG_CLOUD_CDN = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"
+export const IMG_CLOUD_CDN = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"
+// export const LogoUrl = "https://vectorlogoseek.com/wp-content/uploads/2018/07/foodcourt-vector-logo.png"
+// export const FetchingMenuUrl = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.71700&lng=75.83370&restaurantId="
+
 const restaurantlist =  [
     {
       "info": {

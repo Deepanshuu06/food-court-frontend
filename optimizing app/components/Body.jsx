@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestorantCard from "./RestorantCard"; // Importing RestorantCard component
+import RestorantCard from "./RestorantCard.jsx"; // Importing RestorantCard component
 import NotFound from "./LoaderUI.jsx"; // Importing NotFound component
 import { Link } from "react-router-dom"; // Importing Link component from react-router-dom
 
@@ -44,6 +44,7 @@ function Body() {
 
     setFilteredRestaurant(filteredRestaurant); // Setting the filtered restaurant list
   };
+  
   if (!restaurantList) return <NotFound />; // Displaying NotFound component if restaurant list is empty
 
   return (
