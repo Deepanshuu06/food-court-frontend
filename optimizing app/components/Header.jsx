@@ -14,18 +14,18 @@ function Header() {
     "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
   return (
     <>
-      <div className="nav-bar">
+      <div className="nav-bar flex m-10">
         <img
           src={`${logourl}`}
           alt="LOGO"
-          className="header-logo"
+          className="header-logo w-15"
           onClick={() => {
             window.location.href = "/";
           }}
         />
-        <ul className="nav-list text-red-400" class="flex text-red-600">
+        <ul className="nav-list flex">
           <li>
-            <Link to="/" className="text-red-400">Home</Link>
+            <Link to="/" className="">Home</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
