@@ -3,7 +3,7 @@ import RestorantCard from "./RestorantCard.jsx"; // Importing RestorantCard comp
 import NotFound from "./LoaderUI.jsx"; // Importing NotFound component
 import { Link } from "react-router-dom"; // Importing Link component from react-router-dom
 import OfflinePage from "./OfflinePage.jsx";
-import useOnline from "../utils/useOnline.jsx";
+import useOnline from "../../utils/useOnline.jsx";
 
 function Body() {
   const [restaurantList, setRestaurantList] = useState([]); // State to hold the list of restaurants

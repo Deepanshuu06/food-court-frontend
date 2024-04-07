@@ -23,9 +23,9 @@ function Header() {
             window.location.href = "/";
           }}
         />
-        <ul className="nav-list">
+        <ul className="nav-list text-red-400" class="flex text-red-600">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="text-red-400">Home</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
