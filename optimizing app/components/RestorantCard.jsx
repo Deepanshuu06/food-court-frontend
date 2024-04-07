@@ -6,7 +6,7 @@ function RestorantCard({ data }) {
     ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${data.info.cloudinaryImageId}`
     : "https://via.placeholder.com/300"; // Placeholder image URL
 
-  return (
+  return (  
     <>
       <div className="restaurant-home-card">
         {/* Render the image with the imageUrl */}

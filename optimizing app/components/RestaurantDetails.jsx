@@ -114,7 +114,7 @@ const RestaurantMenu = () => {
             <div className="veg-or-nonveg">
               {restaurantdata?.data?.cards[2]?.card?.card?.info?.veg ? (
                 <h3 className="veg-text both-text ">
-                  <span class="material-symbols-outlined">psychiatry</span>Pure
+                  <span className="material-symbols-outlined">psychiatry</span>Pure
                   Veg
                 </h3>
               ) : (

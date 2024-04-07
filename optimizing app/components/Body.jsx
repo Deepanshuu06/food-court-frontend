@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import RestorantCard from "./RestorantCard.jsx"; // Importing RestorantCard component
 import NotFound from "./LoaderUI.jsx"; // Importing NotFound component
 import { Link } from "react-router-dom"; // Importing Link component from react-router-dom
+import OfflinePage from "./OfflinePage.jsx";
+import useOnline from "../utils/useOnline.jsx";
 
 function Body() {
   const [restaurantList, setRestaurantList] = useState([]); // State to hold the list of restaurants
@@ -9,7 +11,6 @@ function Body() {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]); // State to hold the filtered restaurant list
   const [loading, setLoading] = useState(true); // State to indicate loading state
   const [error, setError] = useState(null); // State to hold error information
-
   useEffect(() => {
     fetchRestaurant(); // Fetching restaurant data when component mounts
   }, []);
@@ -44,10 +45,15 @@ function Body() {
 
     setFilteredRestaurant(filteredRestaurant); // Setting the filtered restaurant list
   };
+
+  const isOnline = useOnline()
+
+  
   
   if (!restaurantList) return <NotFound />; // Displaying NotFound component if restaurant list is empty
-
-  return (
+  
+  
+return isOnline ? (
     <>
       <div className="search-container">
         <input
@@ -60,7 +66,7 @@ function Body() {
         <button onClick={handleSearch} className="search-btn">
           Search
         </button>
-      </div>
+      </div> 
 
       {loading ? (
         <NotFound /> // Displaying NotFound component if loading
@@ -80,7 +86,7 @@ function Body() {
         </div>
       )}
     </>
-  );
+  ) : <OfflinePage/>
 }
 
 export default Body;

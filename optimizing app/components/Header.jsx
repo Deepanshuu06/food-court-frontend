@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {FOOD_COURT_LOGO} from "./constansts"
 
 function Header() {
   function userLoggedIN() {
@@ -8,10 +9,7 @@ function Header() {
   }
   const [isloggedin, setisloggedin] = useState(false);
 
-  const logourl =
-    "https://vectorlogoseek.com/wp-content/uploads/2018/07/foodcourt-vector-logo.png"
-      ? "https://vectorlogoseek.com/wp-content/uploads/2018/07/foodcourt-vector-logo.png"
-      : "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
+  const logourl = FOOD_COURT_LOGO || "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
   return (
     <>
       <div className="nav-bar">
@@ -34,7 +32,7 @@ function Header() {
           <Link to="/contact">Contact</Link>
           </li>
           <li>
-          <Link to="/checkout"><span class="material-symbols-outlined">shopping_bag</span></Link>
+          <Link to="/checkout"><span className="material-symbols-outlined">shopping_bag</span></Link>
           </li>
           {isloggedin ? (
            
