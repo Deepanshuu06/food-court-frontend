@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     fetchRestaurantData(); // Fetching restaurant data when component mounts
-  }, []);
+  }, []); 
 
   async function fetchRestaurantData() {
     try {

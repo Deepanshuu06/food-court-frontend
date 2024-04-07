@@ -1,22 +1,22 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
     <>
-      <div>
+      <div className="login-page-div">
         <h1>Login</h1>
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: "", password: "" }}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email('Invalid email address')
-              .required('Email is required'),
+              .email("Invalid email address")
+              .required("Email is required"),
             password: Yup.string()
-              .min(6, 'Password must be at least 6 characters')
-              .required('Password is required'),
+              .min(6, "Password must be at least 6 characters")
+              .required("Password is required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -46,11 +46,14 @@ const LoginPage = () => {
       </div>
       <div>
         <h3>
-          Click here to <Link to="/signup" className='loginpage-signuplink'>Signup</Link>
+          Click here to{" "}
+          <Link to="/signup" className="loginpage-signuplink">
+            Signup
+          </Link>
         </h3>
       </div>
     </>
   );
-}
+};
 
 export default LoginPage;

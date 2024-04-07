@@ -117,7 +117,7 @@ text-align: center;
 
 }
 .shimmer-card{
-  width: 208px;
+  width: 207px;
   height: 400px;
   padding: 13px;
   animation: shimmer 2s infinite linear;
@@ -301,4 +301,11 @@ padding: 10rem 0rem;
 }
 .loginpage-signuplink{
   color: blue;
+}
+
+.login-page-div{
+  
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
