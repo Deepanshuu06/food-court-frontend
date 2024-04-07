@@ -4,8 +4,8 @@ const NotFound = () => {
     <div className="shimmer-wrapper">
       {Array(20)
         .fill("")
-        .map((e , index) => (
-          <div  key={index} className="shimmer-card"></div>
+        .map((e, index) => (
+          <div key={index} className="shimmer-card"></div>
         ))}
     </div>
   );

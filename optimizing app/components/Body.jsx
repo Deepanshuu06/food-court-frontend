@@ -39,21 +39,21 @@ function Body() {
 
   const handleSearch = () => {
     const filteredRestaurant = restaurantList.filter((restaurant) =>
-      restaurant?.info?.name?.toLowerCase()?.trim()?.replace(/\s+/g, "")
-      ?.includes(searchText?.trim()?.toLowerCase()?.replace(/\s+/g, ""))
+      restaurant?.info?.name
+        ?.toLowerCase()
+        ?.trim()
+        ?.replace(/\s+/g, "")
+        ?.includes(searchText?.trim()?.toLowerCase()?.replace(/\s+/g, ""))
     ); // Filtering restaurants based on search text
 
     setFilteredRestaurant(filteredRestaurant); // Setting the filtered restaurant list
   };
 
-  const isOnline = useOnline()
+  const isOnline = useOnline();
 
-  
-  
   if (!restaurantList) return <NotFound />; // Displaying NotFound component if restaurant list is empty
-  
-  
-return isOnline ? (
+
+  return isOnline ? (
     <>
       <div className="search-container">
         <input
@@ -66,7 +66,7 @@ return isOnline ? (
         <button onClick={handleSearch} className="search-btn">
           Search
         </button>
-      </div> 
+      </div>
 
       {loading ? (
         <NotFound /> // Displaying NotFound component if loading
@@ -77,16 +77,21 @@ return isOnline ? (
           {filteredRestaurant.length === 0 ? (
             <h1 className="result-not-found">No results found.</h1> // Displaying message if no results found
           ) : (
-           filteredRestaurant.map((restaurant) => (
-            <Link to={`/restaurant/${restaurant.info.id}`} key={restaurant.info.id}>
-              <RestorantCard data={restaurant}/> 
-            </Link>
+            filteredRestaurant.map((restaurant) => (
+              <Link
+                to={`/restaurant/${restaurant.info.id}`}
+                key={restaurant.info.id}
+              >
+                <RestorantCard data={restaurant} />
+              </Link>
             ))
           )}
         </div>
       )}
     </>
-  ) : <OfflinePage/>
+  ) : (
+    <OfflinePage />
+  );
 }
 
 export default Body;

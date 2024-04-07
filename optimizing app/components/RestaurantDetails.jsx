@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     fetchRestaurantData(); // Fetching restaurant data when component mounts
-  }, []); 
+  }, []);
 
   async function fetchRestaurantData() {
     try {
@@ -75,16 +75,16 @@ const RestaurantMenu = () => {
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.isOpen ? (
                   <h4 className="Restaurant-open-text">OPEN</h4>
                 ) : (
-                  <h4 className="Restaurant-closed-text">
-                    CLOSED
-                  </h4>
+                  <h4 className="Restaurant-closed-text">CLOSED</h4>
                 )}
               </div>
             </div>
             {/* Displaying restaurant rating */}
             <div className="right-restaurant-info">
               <h4 className="avg-rating">
-                <span className="material-symbols-outlined">star_rate_half</span>
+                <span className="material-symbols-outlined">
+                  star_rate_half
+                </span>
                 {restaurantdata?.data?.cards[2]?.card?.card?.info?.avgRating ||
                   ""}
               </h4>
@@ -114,8 +114,8 @@ const RestaurantMenu = () => {
             <div className="veg-or-nonveg">
               {restaurantdata?.data?.cards[2]?.card?.card?.info?.veg ? (
                 <h3 className="veg-text both-text ">
-                  <span className="material-symbols-outlined">psychiatry</span>Pure
-                  Veg
+                  <span className="material-symbols-outlined">psychiatry</span>
+                  Pure Veg
                 </h3>
               ) : (
                 <h3 className="non-veg-text both-text">Veg & Non-Veg</h3>

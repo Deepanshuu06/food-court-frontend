@@ -57,7 +57,6 @@ const Basic = () => (
             id="DOB"
             onChange={handleChange}
             onBlur={handleBlur}
-            
           />
           <button type="submit" disabled={isSubmitting}>
             Submit
@@ -65,7 +64,6 @@ const Basic = () => (
         </form>
       )}
     </Formik>
-
   </div>
 );
 
