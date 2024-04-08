@@ -55,15 +55,15 @@ function Body() {
 
   return isOnline ? (
     <>
-      <div className="search-container">
+      <div className="search-container my-10 place-items-center justify-center flex text-center">
         <input
-          className="search-bar"
+          className="search-bar place-items-center h-10  p-6 border-2 border-zinc-400 rounded-lg "
           type="text"
           placeholder="Search what you want to eat..."
           value={searchText}
           onChange={handleSearchInput} // Handling input change for search
         />
-        <button onClick={handleSearch} className="search-btn">
+        <button onClick={handleSearch} className="search-btn w-2xl h-10 bg-slate-400 p-6 ml-4 items-center flex rounded-lg text-white">
           Search
         </button>
       </div>
@@ -73,7 +73,7 @@ function Body() {
       ) : error ? (
         <p>Something went wrong. Please try again later.</p> // Displaying error message if there's an error
       ) : (
-        <div className="restaurant-list">
+        <div className="restaurant-list flex flex-wrap">
           {filteredRestaurant.length === 0 ? (
             <h1 className="result-not-found">No results found.</h1> // Displaying message if no results found
           ) : (

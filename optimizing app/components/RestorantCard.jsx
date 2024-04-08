@@ -8,12 +8,12 @@ function RestorantCard({ data }) {
 
   return (
     <>
-      <div className="restaurant-home-card">
+      <div className="restaurant-home-card bg-pink-400 m-2 flex flex-col p-6 h-2rem rounded-lg">
         {/* Render the image with the imageUrl */}
         <img src={imageUrl} alt="Restaurant" />
-        <h3>{data?.info?.name}</h3>
-        <h5>{data?.info?.cuisines.join(", ")}</h5>
-        <p>{data?.info?.avgRating} star rating </p>
+        <h3 className="w-52">{data?.info?.name}</h3>
+        <h5 className="w-52">{data?.info?.cuisines.join(", ")}</h5>
+        <p className="w-52">{data?.info?.avgRating} star rating </p>
       </div>
     </>
   );

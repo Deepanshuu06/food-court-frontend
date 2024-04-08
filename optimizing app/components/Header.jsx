@@ -14,18 +14,21 @@ function Header() {
     "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
   return (
     <>
-      <div className="nav-bar flex m-10">
+    <div className=" shadow-md shadow-zinc-200 px-10 mb-3">
+      <div className="nav-bar flex justify-between px-2 py-1 place-items-center ">
         <img
           src={`${logourl}`}
           alt="LOGO"
-          className="header-logo w-15"
+          className="header-logo h-24 cursor-pointer"
           onClick={() => {
             window.location.href = "/";
           }}
         />
-        <ul className="nav-list flex">
+        <ul className="nav-list flex gap-12 place-items-center">
           <li>
-            <Link to="/" className="">Home</Link>
+            <Link to="/" className="">
+              Home
+            </Link>
           </li>
           <li>
             <Link to="/about">About</Link>
@@ -43,7 +46,7 @@ function Header() {
           </li>
           {isloggedin ? (
             <button
-              className="log-btn"
+              className="w-20 h-8 bg-green-600 rounded-sm"
               onClick={() => {
                 setisloggedin(false);
               }}
@@ -52,10 +55,11 @@ function Header() {
             </button>
           ) : (
             <Link to="/login">
-              <button className="log-btn">login</button>
+              <button className="log-btn w-24 h-10 bg-red-600 rounded-lg text-white">login</button>
             </Link>
           )}
         </ul>
+      </div>
       </div>
     </>
   );
