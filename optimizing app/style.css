@@ -290,7 +290,6 @@ transition: 1s ease-in;
   display: flex;
   background-color: black;
   color: rgb(255, 255, 255);
-
 padding: 10rem 0rem;
   justify-content: space-around;
 }

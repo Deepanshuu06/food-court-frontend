@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "../components/Header";
 import Body from "../components/Body";
@@ -10,6 +10,7 @@ import ErrorPage from "../components/ErrorPage";
 import CheckOutPage from "../components/CheckOutPage";
 
 import ProfileComp from "../components/ProfileComp";
+import { UserContext } from "../utils/UserContext";
 const RestaurantMenu = lazy(() => import("../components/RestaurantDetails"));
 const LoginPage = lazy(() => import("../components/LoginPage"));
 const RestaurantListShimmer = lazy(() =>
@@ -19,12 +20,22 @@ const SignupPage = lazy(() => import("../components/SignupPage"));
 const InstaMart = lazy(() => import("../components/InstaMart"));
 
 const Layout = () => {
+
+  const [User , setUser] = useState({
+    name:"deepanshu",
+    email:"bagheldipanshu892@gmail.com"
+  });
+
   return (
-    <>
+    <UserContext.Provider value={{
+      user:User,
+      setUser:setUser
+    }
+    }>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 

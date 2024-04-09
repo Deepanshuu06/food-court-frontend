@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext} from "react";
 import RestorantCard from "./RestorantCard.jsx"; // Importing RestorantCard component
 import NotFound from "./LoaderUI.jsx"; // Importing NotFound component
 import { Link } from "react-router-dom"; // Importing Link component from react-router-dom
 import OfflinePage from "./OfflinePage.jsx";
 import useOnline from "../utils/useOnline.jsx";
+import { UserContext } from "../utils/UserContext.jsx";
+
+
 
 function Body() {
   const [restaurantList, setRestaurantList] = useState([]); // State to hold the list of restaurants
@@ -11,6 +14,9 @@ function Body() {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]); // State to hold the filtered restaurant list
   const [loading, setLoading] = useState(true); // State to indicate loading state
   const [error, setError] = useState(null); // State to hold error information
+  const {user , setUser} = useContext(UserContext)
+  
+  
   useEffect(() => {
     fetchRestaurant(); // Fetching restaurant data when component mounts
   }, []);
@@ -66,6 +72,17 @@ function Body() {
         <button onClick={handleSearch} className="search-btn w-2xl h-10 bg-slate-400 p-6 ml-4 items-center flex rounded-lg text-white">
           Search
         </button>
+        <input 
+        type="text" 
+        placeholder="set your name"
+        value={user.name}
+        onChange={(e)=>setUser({
+          name:e.target.value,
+          email:e.target.value,
+        })}
+        />
+        <button
+        >Change</button>
       </div>
 
       {loading ? (
