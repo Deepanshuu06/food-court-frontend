@@ -8,9 +8,10 @@ import Footer from "../components/Footer";
 import ContactPage from "../components/ContactPage";
 import ErrorPage from "../components/ErrorPage";
 import CheckOutPage from "../components/CheckOutPage";
-
 import ProfileComp from "../components/ProfileComp";
 import { UserContext } from "../utils/UserContext";
+import { Provider } from "react-redux";
+import store from "../utils/store";
 const RestaurantMenu = lazy(() => import("../components/RestaurantDetails"));
 const LoginPage = lazy(() => import("../components/LoginPage"));
 const RestaurantListShimmer = lazy(() =>
@@ -27,6 +28,7 @@ const Layout = () => {
   });
 
   return (
+    <Provider store={store}>
     <UserContext.Provider value={{
       user:User,
       setUser:setUser
@@ -36,6 +38,7 @@ const Layout = () => {
       <Outlet />
       <Footer />
     </UserContext.Provider>
+    </Provider>
   );
 };
 

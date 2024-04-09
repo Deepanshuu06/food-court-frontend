@@ -20,3 +20,5 @@ advantage of prop drilling and the disadvantage of prodrillng
 18, how can we modify the use context using the provider 
 19, how can i put the name on the use context for the searching in the react dev tools  
 20, can context come inside the another contecr      can we have multiple nested context
+21, why do we use redux
+22, why we need redux/toolkit and redux-react
