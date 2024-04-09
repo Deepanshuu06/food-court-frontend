@@ -12,3 +12,7 @@ when we create the one function only in the one file then we do default export b
 11, how do we clear the cache of the event listner and why we need to clear the cache when we change the component 
 12 what is on demand loading
 13, what is fallback in react
+14, what is props drilling ?
+advantage of prop drilling and the disadvantage of prodrillng 
+15, how we can pass the data child to the parent 
+16, what is redux and why we use the redux

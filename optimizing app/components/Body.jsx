@@ -57,7 +57,7 @@ function Body() {
     <>
       <div className="search-container my-10 place-items-center justify-center flex text-center">
         <input
-          className="search-bar place-items-center h-10  p-6 border-2 border-zinc-400 rounded-lg "
+          className="search-bar place-items-center h-10 p-6 border-2 border-zinc-400 rounded-lg "
           type="text"
           placeholder="Search what you want to eat..."
           value={searchText}
