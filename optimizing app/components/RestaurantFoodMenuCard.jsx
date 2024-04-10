@@ -1,7 +1,16 @@
 // Import React library
-import React from "react";
+import React, { useState } from "react";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantFoodMenuCard = ({ food }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem(food?.card));
+  };
+  const [itemadded, setitemadded] = useState(false);
+
   return (
     <div className="restaurants-food-menu-list-card">
       <div className="restaurants-food-menu-list-card-left">
@@ -23,7 +32,16 @@ const RestaurantFoodMenuCard = ({ food }) => {
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${food?.card?.info?.imageId}`}
           alt={food?.card?.info?.name}
         />
-        <button>Add</button>
+        {itemadded ? (
+          <button onClick={() => {
+            setitemadded(false)
+          }}>remove</button>
+        ) : (
+          <button onClick={() => {
+            setitemadded(true)
+            handleAddItem()
+          }}>add</button>
+        )}
       </div>
     </div>
   );

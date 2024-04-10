@@ -308,3 +308,16 @@ padding: 10rem 0rem;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.restaurants-food-menu-list-cards{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0rem;
+  border-bottom: 2px solid lightgray;
+
+}
+
+.checkout-page{
+margin: 1rem 8rem;
+}

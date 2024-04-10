@@ -43,6 +43,7 @@ function Body() {
     setSearchText(e.target.value); // Handling input change for search text
   };
 
+
   const handleSearch = () => {
     const filteredRestaurant = restaurantList.filter((restaurant) =>
       restaurant?.info?.name
