@@ -3,12 +3,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FOOD_COURT_LOGO } from "./constansts";
 import {UserContext} from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
+
 
 function Header() {
   function userLoggedIN() {
     return true;
   }
   const [isloggedin, setisloggedin] = useState(true);
+  const cartitems = useSelector((store) =>store.cart.items)
 
   const logourl =
     FOOD_COURT_LOGO ||
@@ -46,7 +50,7 @@ function Header() {
             </li>
             <li>
               <Link to="/checkout">
-                <span className="material-symbols-outlined">shopping_bag</span>
+              <span>  <span className="material-symbols-outlined">shopping_bag</span>{cartitems.length} </span>
               </Link>
             </li>
             {isloggedin ? (

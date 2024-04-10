@@ -6,7 +6,7 @@ import { clearCart } from "../utils/cartSlice";
 const CheckOutPage = () => {
   const dispatch = useDispatch();
   const cartItem = useSelector((store) => store.cart.items);
-  console.log(cartItem);
+
 
   const handleClearCart = () => {
     dispatch(clearCart());
