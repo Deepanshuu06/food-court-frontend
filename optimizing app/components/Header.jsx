@@ -11,7 +11,7 @@ function Header() {
   function userLoggedIN() {
     return true;
   }
-  const [isloggedin, setisloggedin] = useState(true);
+  const [isloggedin, setisloggedin] = useState(false);
   const cartitems = useSelector((store) =>store.cart.items)
 
   const logourl =
@@ -50,7 +50,7 @@ function Header() {
             </li>
             <li>
               <Link to="/checkout">
-              <span>  <span className="material-symbols-outlined">shopping_bag</span>{cartitems.length} </span>
+              <span className="carticon"> <span className="material-symbols-outlined">shopping_bag</span>{cartitems.length} </span>
               </Link>
             </li>
             {isloggedin ? (

@@ -6,7 +6,7 @@ node_modules/
 # Ignore Parcel cache directories
 parcel-cache/
 .parcel-cache/
-
+coverage/
 
 # Ignore npm lock files
 yarn.lock

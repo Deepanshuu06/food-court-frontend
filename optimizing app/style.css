@@ -321,3 +321,13 @@ padding: 10rem 0rem;
 .checkout-page{
 margin: 1rem 8rem;
 }
+
+.carticon{
+
+  display: flex;
+  padding: 0rem 1rem;
+  gap:0.5rem;
+  justify-content: center;
+  justify-items: center;
+}
+
