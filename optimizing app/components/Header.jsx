@@ -5,6 +5,7 @@ import { FOOD_COURT_LOGO } from "./constansts";
 import {UserContext} from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import store from "../utils/store";
+import useOnline from "../utils/useOnline";
 
 
 function Header() {
@@ -20,7 +21,7 @@ function Header() {
 
     const {user} = useContext(UserContext)
     
-
+  const isOnline = useOnline()
   return (
     <>
       <div className=" shadow-md shadow-zinc-200 px-10 mb-3">
@@ -28,6 +29,7 @@ function Header() {
           <img
             src={`${logourl}`}
             alt="LOGO"
+            data-testid="logo"
             className="header-logo h-24 cursor-pointer"
             onClick={() => {
               window.location.href = "/";
@@ -53,6 +55,7 @@ function Header() {
               <span className="carticon"> <span className="material-symbols-outlined">shopping_bag</span>{cartitems.length} </span>
               </Link>
             </li>
+            {isOnline ? <span>online</span> : <span>offline</span>}
             {isloggedin ? (
               <button
                 className="w-20 h-8 bg-green-600 rounded-sm"
