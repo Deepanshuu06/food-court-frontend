@@ -1,12 +1,15 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../utils/cartSlice";
 
 const CartMenu = ({ card }) => {
   const dispatch = useDispatch();
 
+
   const handleRemoveItem = () => {
     dispatch(removeItem()); // Dispatching an action with index inside an object
   };
+
 
   return (
     <div className="restaurants-food-menu-list-cards">
@@ -29,7 +32,9 @@ const CartMenu = ({ card }) => {
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${card?.info?.imageId}`}
           alt={card?.info?.name}
         />
-        <button onClick={() => handleRemoveItem()}>remove</button>
+        <button onClick={() => 
+         handleRemoveItem()
+        }>remove</button>
       </div>
     </div>
   );
