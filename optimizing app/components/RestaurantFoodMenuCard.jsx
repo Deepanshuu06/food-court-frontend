@@ -33,14 +33,22 @@ const RestaurantFoodMenuCard = ({ food }) => {
           alt={food?.card?.info?.name}
         />
         {itemadded ? (
-          <button onClick={() => {
-            setitemadded(false)
-          }}>remove</button>
+          <button
+            onClick={() => {
+              setitemadded(false);
+            }}
+          >
+            remove
+          </button>
         ) : (
-          <button onClick={() => {
-            setitemadded(true)
-            handleAddItem()
-          }}>add</button>
+          <button
+            onClick={() => {
+              setitemadded(true);
+              handleAddItem();
+            }}
+          >
+            add
+          </button>
         )}
       </div>
     </div>

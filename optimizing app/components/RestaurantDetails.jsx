@@ -1,16 +1,15 @@
-import React, { useEffect, useState , useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import RestaurantListShimmer from "./RestaurantListShimmer"; // Importing   RestaurantListShimmer component
 import RestaurantFoodMenuCard from "./RestaurantFoodMenuCard"; // Importing RestaurantFoodMenuCard component
-import {UserContext} from "../utils/UserContext";
-
+import { UserContext } from "../utils/UserContext";
 
 const RestaurantMenu = () => {
   const { id } = useParams(); // Extracting id parameter from URL
   const [restaurantdata, setRestaurantData] = useState({}); // State to hold restaurant data
   const [loading, setLoading] = useState(true); // State to indicate loading state
   const [error, setError] = useState(null); // State to hold error information
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     fetchRestaurantData(); // Fetching restaurant data when component mounts

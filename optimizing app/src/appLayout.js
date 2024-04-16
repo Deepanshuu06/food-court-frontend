@@ -21,23 +21,23 @@ const SignupPage = lazy(() => import("../components/SignupPage"));
 const InstaMart = lazy(() => import("../components/InstaMart"));
 
 const Layout = () => {
-
-  const [User , setUser] = useState({
-    name:"deepanshu",
-    email:"bagheldipanshu892@gmail.com"
+  const [User, setUser] = useState({
+    name: "deepanshu",
+    email: "bagheldipanshu892@gmail.com",
   });
 
   return (
     <Provider store={store}>
-    <UserContext.Provider value={{
-      user:User,
-      setUser:setUser
-    }
-    }>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+      <UserContext.Provider
+        value={{
+          user: User,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </Provider>
   );
 };

@@ -2,26 +2,25 @@ import React, { useEffect, useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FOOD_COURT_LOGO } from "./constansts";
-import {UserContext} from "../utils/UserContext";
+import { UserContext } from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import store from "../utils/store";
 import useOnline from "../utils/useOnline";
-
 
 function Header() {
   function userLoggedIN() {
     return true;
   }
   const [isloggedin, setisloggedin] = useState(false);
-  const cartitems = useSelector((store) =>store.cart.items)
+  const cartitems = useSelector((store) => store.cart.items);
 
   const logourl =
     FOOD_COURT_LOGO ||
     "https://1000logos.net/wp-content/uploads/2021/06/Zomato-logo.png";
 
-    const {user} = useContext(UserContext)
-    
-  const isOnline = useOnline()
+  const { user } = useContext(UserContext);
+
+  const isOnline = useOnline();
   return (
     <>
       <div className=" shadow-md shadow-zinc-200 px-10 mb-3">
@@ -52,7 +51,13 @@ function Header() {
             </li>
             <li>
               <Link to="/checkout">
-              <span className="carticon"> <span className="material-symbols-outlined">shopping_bag</span>{cartitems.length} </span>
+                <span className="carticon">
+                  {" "}
+                  <span className="material-symbols-outlined">
+                    shopping_bag
+                  </span>
+                  {cartitems.length}{" "}
+                </span>
               </Link>
             </li>
             {isOnline ? <span>online</span> : <span>offline</span>}
