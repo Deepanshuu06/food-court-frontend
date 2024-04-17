@@ -13,22 +13,43 @@ function Body() {
   const [loading, setLoading] = useState(true); // State to indicate loading state
   const [error, setError] = useState(null); // State to hold error information
   const { user, setUser } = useContext(UserContext);
+  const [Page , setPage] = useState(1)
 
   useEffect(() => {
     fetchRestaurant(); // Fetching restaurant data when component mounts
-  }, []);
+  }, [Page]);
+  
+  const handleInfinityScroll =  async ()=>{
+    try {
+      if(window.innerHeight + document.documentElement.scrollTop +100 >= document.documentElement.scrollHeight ){
+        setPage((prev)=> prev+1)
+      }
+    } catch (error) {
+      
+    }
+    console.log(" scroll height " + document.documentElement.scrollHeight);
+    console.log(" scroll Top " + document.documentElement.scrollTop);
+    console.log(" inner height  " + window.innerHeight);
+    
+  }
+  
+  useEffect(()=>{
+    window.addEventListener("scroll" , handleInfinityScroll)
+    return()=> window.removeEventListener("scroll" , handleInfinityScroll)
+  
+  }, [])
 
   async function fetchRestaurant() {
     try {
       const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7513527&lng=75.90059339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        `https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7513527&lng=75.90059339999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&page=${Page}`
       ); // Fetching restaurant data from the API
       const json = await response.json(); // Parsing the response as JSON
       const restaurants =
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants; // Extracting restaurant information from the JSON response
-      setRestaurantList(restaurants); // Setting the list of restaurants
-      setFilteredRestaurant(restaurants); // Setting the filtered restaurant list initially to all restaurants
+      setRestaurantList((prev)=>[...prev ,...restaurants]); // Setting the list of restaurants
+      setFilteredRestaurant((prev)=>[...prev ,...restaurants]); // Setting the filtered restaurant list initially to all restaurants
       setLoading(false); // Setting loading state to false
     } catch (error) {
       setError(error); // Setting error state if there's an error during fetching
