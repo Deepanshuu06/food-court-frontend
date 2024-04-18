@@ -20,10 +20,10 @@ const RestaurantListShimmer = lazy(() =>
 const SignupPage = lazy(() => import("../components/SignupPage"));
 const InstaMart = lazy(() => import("../components/InstaMart"));
 
-const Layout = () => {
+const Layout = () => { 
   const [User, setUser] = useState({
-    name: "deepanshu",
-    email: "bagheldipanshu892@gmail.com",
+    name: "",
+    email: "",
   });
 
   return (

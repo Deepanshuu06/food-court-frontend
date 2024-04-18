@@ -32,7 +32,7 @@ a:hover{
   color: red;
 }
 .restaurant-home-card{
-  width: 210px;
+  width: 240px;
   border: 2px solid black;
   padding: 13px;
   height: 65vh;
@@ -117,7 +117,7 @@ text-align: center;
 
 }
 .shimmer-card{
-  width: 207px;
+  width: 238px;
   height: 400px;
   padding: 13px;
   animation: shimmer 2s infinite linear;

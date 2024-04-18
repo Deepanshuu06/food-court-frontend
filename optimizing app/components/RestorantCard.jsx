@@ -8,7 +8,7 @@ function RestorantCard({ data }) {
 
   return (
     <>
-      <div className="restaurant-home-card bg-pink-400 m-2 flex flex-col p-6 h-2rem rounded-lg">
+      <div className="restaurant-home-card bg-pink-400 m-2  flex flex-col p-6 h-2rem rounded-lg">
         {/* Render the image with the imageUrl */}
         <img src={imageUrl} alt="Restaurant" />
         <h3 className="w-52">{data?.info?.name}</h3>
