@@ -1,6 +1,0 @@
-1, why we nee to use the ../components/Body .. ?
-2, what is the hook ?
-3, what is use state hook ? 
-4, why we need to use the state ?
-5, what is binding
-6, what is 2 wy binding
